@@ -5,16 +5,14 @@
 
 }
 
-
-
-#nav-bar{
-	background-color: #0d1320;
+#nav-bar-db{
+	background-color: #171e2e;
 	height: 10vh;
 	width: 100%;
 	/* position:fixed; */
 }
 
-#nav-items{
+#nav-items-db{
 	color: #d9d9d9;
 	display: flex;
 	justify-content: space-around;
@@ -40,11 +38,7 @@
 
 a{
 	text-decoration: none;
-	
 }
-
-
-
 
 #dashboard-container{
 	width: 50%;
@@ -73,9 +67,10 @@ a{
 	
 }
 
-body{
-	height: 150vh;
-	background-color: #313742;
+.db{
+	height: 1500vh;
+	/* background-color: #313742; */
+	background-color: #0d1320;
 }
 
 .courses-container {
@@ -107,7 +102,7 @@ body{
 }
 
 .course-preview {
-	background-color: #0d1320;
+	background-color: #171e2e;
 	color: #fff;
 	padding: 30px;
 	max-width: 250px;
@@ -136,7 +131,7 @@ body{
 	padding: 30px;
 	position: relative;
 	width: 100%;
-    background-color:#171e2e;
+    background-color:#0d1320;
 }
 
 .course-info h6{

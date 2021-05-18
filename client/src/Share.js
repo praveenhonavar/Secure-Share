@@ -1,10 +1,15 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 import SecureShareContract from "./contracts/SecureShare.json";
 import getWeb3 from "./getWeb3";
 
-
-
 import ipfs from './ipfs';
+import Swal from 'sweetalert2';
+
+
+import "./styles/Share.css";
+
 
 class Share extends Component {
   state = { storageValue: 0, web3: null, accounts: null, contract: null };
@@ -47,7 +52,39 @@ class Share extends Component {
     var selectedReceiver;
 
 
+
+    var chooseButton =document.getElementById('choose');
+    var uploadButton =document.getElementById('upload');
+
+    var fileAddedIcon = document.getElementById("file-added");
+    var uploadIcon = document.getElementById("upload-icon");
+
+
+    var loader = document.getElementById("loader");
+    var pw = document.getElementById("pw");
+    var beforeAdd = document.getElementById('before-add');
+    var afterAdd = document.getElementById('after-add');
+    // var fileName = document.querySelector("#document");
+    var fileName = document.getElementById("file-name");
+
+    var selectReceiver =document.getElementById("select-receiver");
+    var chooseButton =document.getElementById("choose");
+    var uploadButton =document.getElementById("upload");
+
+    var cusUploadBtn = document.getElementById("share-btn");
+
+
+    console.log(fileName);
+
+
     const { accounts, contract } = this.state;
+
+    fileAddedIcon.style.display='none';
+    loader.style.display='none';
+    pw.style.display='none';
+
+    cusUploadBtn.style.display='none';
+
 
     // Stores a given value, 5 by default.
     // await contract.methods.set(5).send({ from: accounts[0] });
@@ -59,9 +96,7 @@ class Share extends Component {
 
     // Update state with the result.
     // this.setState({ storageValue: response });
-    var selectReceiver =document.getElementById("select-receiver");
-    var chooseButton =document.getElementById("choose");
-    var uploadButton =document.getElementById("upload");
+ 
 
 
     contract.getPastEvents("AddedUser",{
@@ -103,6 +138,20 @@ class Share extends Component {
       console.log(event);
       file = event.target.files[0];
       console.log(file.name);
+
+
+      fileAddedIcon.style.display='block';
+
+      cusUploadBtn.style.display='block';
+
+
+
+      uploadIcon.style.display='none';
+      beforeAdd.style.display='none';
+  
+      afterAdd.innerText=`Your have selected the file ${file.name}\n
+      Click on Share to Proceed`;
+  
   
       const reader = new window.FileReader();
   
@@ -126,6 +175,15 @@ class Share extends Component {
     
         console.log(contract);
         console.log(accounts[0]);
+
+    fileAddedIcon.style.display='none';
+    afterAdd.innerText='';
+
+    loader.style.display='block';
+    pw.style.display='block';
+    cusUploadBtn.style.display='none';
+
+
     
     
     
@@ -146,6 +204,23 @@ class Share extends Component {
                 (data) =>{
                     console.log(data);
                     console.log('added');
+
+                    loader.style.display='none';
+                    pw.style.display='none';
+    
+                    uploadIcon.style.display='block';
+                    beforeAdd.style.display='block';
+
+                    cusUploadBtn.style.display='none';
+
+
+                    Swal.fire({
+                      title: "File Shared Successfully !",
+                      text: `Your file is uploded to IPFS with the following Hash Value
+                              ${res[0].hash}`,
+                      icon: "success",
+                      button: "Done!",
+                    });
     
                    
                       contract.methods.getFileId(receiver).call().then(
@@ -173,39 +248,80 @@ class Share extends Component {
     }
     return (
 
-    <div className='App'>
+    <div className="Share">
+
+
+    <nav id="nav-bar-ss">
+        <ul id="nav-items-ss">
+
+            <a href="../public/homePage.html" target="_blank">
+                <li id="home">Home</li>
+            </a>
+            
+
+            <li id="dashboard-ss">Dashboard</li>
+
+            <Link to='share' target='_blank'>
+                <li id="share">Start Sharing</li>
+
+            </Link>
+            
+
+            <li id="account">Your Account</li>
+           
+        </ul>
+
+    </nav>
+
+
+    <div id="share-desc">
+      <div id="share-intro">Share your Electronic Health Records using</div>
+      <div id="share-sub-intro">Secure Share</div>
     
-    <h1 id="heading">
-      Share your Health Records safely using<br></br>
-    <span id="secure-share">Secure Share</span>
-      </h1>
-
-
-    <select id="select-receiver">
-        <option value="address">Select the Receiver</option>
-       
-    </select>
-        
-    <div id="select-file">
-
-      <input id="choose" type="file" name="fileUpload" />
-
     </div>
 
-    <div id="upload-file">
 
-    <input type="button" value="Upload to IPFS" id="upload" name="upload-btn"/>
 
-    <label for="upload">
-      <span id="file-upload-btn" class="btn">Share your File</span>
-    </label>
-
-  </div>
-
-    </div>
+    <div id="share-box">
       
-   
+      <select id="select-receiver">
+          <option value="address">Select the Receiver</option>      
+      </select>
+        
+      <div id="select-file">
 
+        <input id="choose" type="file" name="fileUpload" />
+
+        <label for="choose" id="file-select">
+
+
+        <i class="fa fa-download fa-5x" aria-hidden="true" id="upload-icon"></i>
+
+        <h3 id="before-add">Select the File which you want to Share</h3>
+
+        <i class="fas fa-file-medical fa-5x" id="file-added" ></i>
+  
+        </label>
+
+        <h3 id="after-add"></h3>
+  
+        <img src="assets/loader-1.gif" alt="" id ="loader"/>
+  
+        <h3 id="pw">Please Wait, Your Transaction is being Processed</h3>
+
+      </div>
+
+      <div id="upload-file">
+        <input type="button" value="Upload to IPFS" id="upload" name="upload-btn"/>
+        <label for="upload">
+          <span id="file-upload-btn" id="share-btn">Share your File</span>
+        </label>
+      </div>
+
+    </div>
+
+   </div> 
+      
     );
   }
 }

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import SecureShareContract from "../contracts/SecureShare.json";
 import getWeb3 from "../getWeb3";
 
-// import '../styles/Dashboard.css';
+import '../styles/Dashboard.css';
 
 class Dashboard extends Component {
   state = { storageValue: 0, web3: null, accounts: null, contract: null };
@@ -127,8 +127,8 @@ class Dashboard extends Component {
 
 
     <div className="db">
-    <nav id="nav-bar">
-        <ul id="nav-items">
+    <nav id="nav-bar-db">
+        <ul id="nav-items-db">
 
             <a href="../public/homePage.html" target="_blank">
                 <li id="home">Home</li>
