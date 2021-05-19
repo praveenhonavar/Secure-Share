@@ -1,0 +1,106 @@
+#register-body{
+    background-image: url(./assets/map.png);
+    background-size: cover;
+    height: 100vh;
+    
+}
+
+#reg-head{
+    position: absolute;
+    color: #d9d9d9;
+    text-align: center;
+    margin-left: 17em;
+    margin-top: 2em;
+    font-weight: bolder;
+}
+
+#form-container{
+    position: absolute;
+    background-color: #171e2e;
+    margin-left: 31em;
+    width: 28%;
+    height: 60%;
+    margin-top: 9em;
+    text-align: justify;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    border-radius: 1%;
+}
+
+#form-items{
+    margin:1em;
+}
+
+#reg-item-header{
+    color: #d9d9d9;
+    font-weight: 400;
+}
+
+#reg-item-subheader{
+    color: #d9d9d9;
+    font-weight: 400;
+}
+
+#reg-username{
+    padding: 1em;
+    border-radius: 0.6em;
+    border: none;
+    width:24em;
+    background-color: #313742;
+    margin-bottom: 20px;
+    margin-top: 10px; 
+    color: #d9d9d9;
+}
+
+#reg-password{
+    padding: 1em;
+    border-radius: 0.6em;
+    border: none;
+    width:24em;
+    background-color: #313742;
+    margin-bottom: 20px;
+    margin-top: 10px; 
+    color: #d9d9d9;
+}
+
+#reg-address{
+    padding: 1em;
+    border-radius: 0.6em;
+    border: none;
+    width:24em;
+    background-color: #313742;
+    margin-bottom: 20px;
+    margin-top: 10px; 
+    color: #d9d9d9;
+}
+
+#item-head-1{
+    margin-top:1em;
+    color:#d9d9d9;
+    font-weight: 400;
+}
+
+#item-head{
+    color:#d9d9d9;
+    font-weight: 400;
+}
+
+#submit{
+    padding: 1em;
+    border-radius: 0.6em;
+    border: none;
+    width:26em;
+    background-color:#00ffa4;
+    margin-bottom: 10px;
+    margin-top: 6px; 
+    color:black;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+#reg-extra{
+    color:#d9d9d9;
+    text-align: center;
+    font-weight: 400;
+}

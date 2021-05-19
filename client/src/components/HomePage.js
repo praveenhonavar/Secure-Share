@@ -26,22 +26,23 @@ function HomePage(){
             </a>
           </li>
 
-          <li>
-           
+          <Link to="/login" target="_blank">
+            <li>
               <label for="login" id="login">
                 <p>Sign In</p>
               </label>
+            </li>
+          </Link>
         
-          </li>
-
           
-            <li>
-             
+          <Link to='/register' target="_blank">
+            <li>  
               <label for="register" id="register">
                 <p>Register</p>
               </label>
-
             </li>
+          </Link>
+           
         
         </ul>
       </div>

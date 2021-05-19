@@ -129,14 +129,17 @@ i {
 #share-intro{
 	color:#d9d9d9;
 	font-size: 30px;
+	font-weight: 600;
 }
 
 #share-sub-intro{
 	color:#00ffa4;
 	font-size: 30px;
 	margin-left: 7em;
+	font-weight: 600;
+
 }
 
-#share{
+#share-ss{
 	color: #00ffa4;
 }

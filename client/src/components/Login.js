@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import SecureShareContract from "../contracts/SecureShare.json";
 import getWeb3 from "../getWeb3";
 
+import Swal from 'sweetalert2';
+
 
 
 class Login extends Component {
@@ -38,9 +40,52 @@ class Login extends Component {
 
   runExample = async () => {
 
-    
-      
-  };
+
+    const { accounts, contract } = this.state;
+
+
+    var loginUserName = document.getElementById("login-username");
+    var loginPassword = document.getElementById("login-password");
+    var loginBtn  = document.getElementById("login-button");
+
+    loginBtn.addEventListener('click',()=>{
+      var userName = loginUserName.value;
+      var password = loginPassword.value;
+
+      console.log(userName);
+      console.log(password);
+
+      contract.methods.authenticateUser(userName,password).send({from:accounts[0]}).then((data)=>{
+        console.log(data.events);
+        contract.getPastEvents("Success").then((val)=>{
+          if(val[0].returnValues.value == true){
+            console.log('inn');
+            Swal.fire({
+              icon: 'success',
+              title: 'Logged-In Successfully 🎉',
+              showConfirmButton: false,
+              timer:2000
+            })
+
+            window.location="http://localhost:3000/dashboard";
+
+            
+          }
+          else{
+            console.log('foff');
+            Swal.fire({
+              icon: 'fail',
+              title: 'Please Make sure that you are using same MetaMask Account 😕',
+              showConfirmButton: false,
+              timer:2000
+            })
+          }
+        })
+
+  })
+  })
+  }
+  
 
   render() {
     if (!this.state.web3) {
@@ -60,21 +105,18 @@ class Login extends Component {
     
                             <h4 id="item-subheader">Sign in to your account to continue</h4>
     
-                            <label id="email-label">Email Address</label><br/>
+                            <label id="email-label">UserName</label><br/>
     
-                            <input type="email" name="" id="email-ip" placeholder="hello@gmail.com"/><br/>
+                            <input type="text" name="" id="login-username" placeholder="Luna Lovegood"/><br/>
             
                             <label id="pwd-label">Password</label><br/>
     
-                            <input type="password" name="" id="password-ip" placeholder="Password"/><br/>
+                            <input type="password" name="" id="login-password" placeholder="Password"/><br/>
             
                             <label id='fpwd'>Forgot your password?</label><br/>
     
-                            <Link to='dashboard' target="_blank">
                             <input type="button" value="Sign In" id ="login-button"/>
-                            </Link>
                             
-            
                             <p>Need an account? <a href="./Register.html" id="reg-here" >Register here.</a></p>
     
     
@@ -86,9 +128,8 @@ class Login extends Component {
    
     );
   }
+};
+  
 
-
-
-}
 
 export default Login;

@@ -23,7 +23,6 @@ struct UserInfo{
   
 }
 
-
 event AddedUser(
   string name,
   string password,
@@ -40,8 +39,18 @@ event AddedUser(
   );
 
 
+event Success(
+  bool value
+);
+
+event Fail(
+  bool value
+);
+
   mapping(string => UserInfo) UserNameMapping;
+
   mapping(address => mapping(uint => SharedData))  SharedDataMapping;
+
   mapping(address=>uint) fileKey;
 
 
@@ -75,6 +84,15 @@ event AddedUser(
   
   function getFileId(address receiver) public view returns(uint){
     return fileKey[receiver];
+  }
+
+  function  authenticateUser(string memory user,string memory password) public {
+    if( (keccak256(abi.encodePacked(msg.sender))) == (keccak256(abi.encodePacked(UserNameMapping[user].accountAddress)))){
+      emit Success(true);
+    }
+    else{
+      emit Success(false);
+    }
   }
 
 }

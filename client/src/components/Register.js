@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import SecureShareContract from "../contracts/SecureShare.json";
 import getWeb3 from "../getWeb3";
 
+import "../styles/Register.css";
 
+import Swal from 'sweetalert2';
 
 class Register extends Component {
   state = { storageValue: 0, web3: null, accounts: null, contract: null };
@@ -58,16 +60,23 @@ class Register extends Component {
 
 
     submitButton.addEventListener('click',()=>{
-        var email = document.getElementById('email').value
-        var password = document.getElementById('password').value
-        var username = document.getElementById('username').value
-        var address = document.getElementById('address').value
-        var phone = document.getElementById('phone').value
+        
+        var password = document.getElementById('reg-password').value
+        var username = document.getElementById('reg-username').value
+        var address = document.getElementById('reg-address').value
       
         contract.methods.registerUser(username,password,address).send({from:accounts[0]}).then(
-            console.log("added user")
-            );
-      });
+          (data)=>{
+          console.log("added user",data);
+          Swal.fire({
+            icon: 'success',
+            title: 'You have been Registerd Successfully 🎉',
+            showConfirmButton: false,
+            timer:2000
+          })
+        }    
+      );
+    });
       
   };
 
@@ -78,19 +87,42 @@ class Register extends Component {
     return (
 
 
-    <div class ="register">
-        <div id="form_container">
-            <input placeholder="Email" type="email" id="email"/>
-            <input placeholder="Password" type="password" id="password"/>
-            <input placeholder="username" type="name" id="username"/>
-            <input placeholder="Ethereum Address" type="text" id="address"/>
-            <input placeholder="phone" type="text" id="phone"/>
-        </div>
+  <div id="register-body">
+ 
 
-        <div id="button_container">
-            <button id="submit"> SUBMIT </button>
-        </div>
+  <h1 id="reg-head">Register YourSelf</h1>
+
+  
+
+  <div id="form-container">
+
+  <div id="form-items">
+
+  <h4 id="reg-item-header">Let's get you Signed Up!</h4>
+
+  <h5 id="reg-item-subheader">Create your Account on Secure Share</h5>
+
+    <h5 id="item-head-1">UserName</h5>
+      <input placeholder="Enter your UserName" type="name" id="reg-username"/><br></br>
+    <h5 id="item-head">Paassword</h5>
+
+    <input placeholder="Enter your Password" type="password" id="reg-password"/><br></br>
+    <h5 id="item-head">Ethereum Address</h5>
+
+    <input placeholder="Enter your public Ethereum Address" type="text" id="reg-address"/><br></br>
+
+    <div id="button_container">
+      <button id="submit"> Register </button>
     </div>
+
+  <h5 id="reg-extra">Already have an account? SignIn here</h5>
+
+  </div>
+  </div>
+
+  </div>
+
+  
       
    
     );

@@ -254,18 +254,15 @@ class Share extends Component {
     <nav id="nav-bar-ss">
         <ul id="nav-items-ss">
 
-            <a href="../public/homePage.html" target="_blank">
+            <Link to='/' target="_blank">
                 <li id="home">Home</li>
-            </a>
-            
-
-            <li id="dashboard-ss">Dashboard</li>
-
-            <Link to='share' target='_blank'>
-                <li id="share">Start Sharing</li>
-
             </Link>
             
+            <Link to='/dashboard' target='_blank'>
+              <li id="dashboard-ss">Dashboard</li>
+            </Link>
+
+            <li id="share-ss">Start Sharing</li>
 
             <li id="account">Your Account</li>
            
