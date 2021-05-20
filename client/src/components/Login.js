@@ -5,6 +5,7 @@ import getWeb3 from "../getWeb3";
 
 import Swal from 'sweetalert2';
 
+import "../styles/Login.css";
 
 
 class Login extends Component {
@@ -96,34 +97,37 @@ class Login extends Component {
         <div>
             <img src="../public/assets/logo-homepage.png" alt="" id="logo" />
                 
-                <div id="container-box">
+                <div id="login-container-box">
+
+                  <h1 id="login-head">Login Here</h1>
+
                     <div id="login-container">
 
-                        <div id="content">
+                        <div id="login-content">
     
-                            <h3 id="item-header">Welcome to Secure Share</h3>
+                            <h4 id="login-item-header">Welcome to Secure Share</h4>
     
-                            <h4 id="item-subheader">Sign in to your account to continue</h4>
+                            <h5 id="login-item-subheader">Sign in to your account to continue</h5>
     
-                            <label id="email-label">UserName</label><br/>
+                            <h5 id="item-head-1">UserName</h5>
     
-                            <input type="text" name="" id="login-username" placeholder="Luna Lovegood"/><br/>
+                            <input type="text" name="" id="login-username" placeholder="Enter your UserName"/><br/>
             
-                            <label id="pwd-label">Password</label><br/>
+                            <h5 id="item-head">Password</h5>
     
-                            <input type="password" name="" id="login-password" placeholder="Password"/><br/>
+                            <input type="password" name="" id="login-password" placeholder="Enter your Password"/><br/>
             
-                            <label id='fpwd'>Forgot your password?</label><br/>
-    
+                            <h5 id="fpwd">Forgot your password?</h5>
+
                             <input type="button" value="Sign In" id ="login-button"/>
                             
-                            <p>Need an account? <a href="./Register.html" id="reg-here" >Register here.</a></p>
-    
-    
-                </div>
+                            <h5 id="reg-here">Need an account? <Link to='register' target="_blank">Register here.</Link></h5>
 
-            </div>
-            </div>
+
+                        </div>
+
+                    </div>
+                </div>
         </div>
    
     );

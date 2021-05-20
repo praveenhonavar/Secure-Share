@@ -54,13 +54,17 @@ event Fail(
   mapping(address=>uint) fileKey;
 
 
+
   function registerUser(string memory name,string memory password,address accountAddress) public{
 
     UserNameMapping[name].name = name;
     UserNameMapping[name].password = password;
     UserNameMapping[name].accountAddress = accountAddress;
 
+
+  
     emit AddedUser(name, password, accountAddress);
+
 
   }
 

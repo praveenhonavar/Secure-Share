@@ -104,7 +104,7 @@ class Register extends Component {
 
     <h5 id="item-head-1">UserName</h5>
       <input placeholder="Enter your UserName" type="name" id="reg-username"/><br></br>
-    <h5 id="item-head">Paassword</h5>
+    <h5 id="item-head">Password</h5>
 
     <input placeholder="Enter your Password" type="password" id="reg-password"/><br></br>
     <h5 id="item-head">Ethereum Address</h5>

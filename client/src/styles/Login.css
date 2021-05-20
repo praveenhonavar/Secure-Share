@@ -1,0 +1,89 @@
+#login-container-box{
+    height:100vh;
+    background-image:url("./assets/map.png");
+    background-size:cover;
+}
+
+#login-container{
+    width:23.5em;
+    height:25em;
+    background-color:#171e2e;
+    position:absolute;
+    margin-left:32em;
+    margin-top:10em;
+    border-radius:1%;
+
+}
+
+#login-content{
+    padding:1em;
+}
+
+#login-item-header{
+    color:#d9d9d9;
+    font-weight:400;
+    margin-top:1em;
+
+}
+
+#login-item-subheader{
+    color:#d9d9d9;
+    font-weight:200;
+
+}
+
+#login-username{
+    padding: 1em;
+    border-radius: 0.6em;
+    border: none;
+    width:24em;
+    background-color: #313742;
+    margin-bottom: 20px;
+    margin-top: 10px; 
+    color: #d9d9d9;
+}
+
+#login-password{
+    padding: 1em;
+    border-radius: 0.6em;
+    border: none;
+    width:24em;
+    background-color: #313742;
+    margin-bottom: 20px;
+    margin-top: 10px; 
+    color: #d9d9d9;
+}
+
+#login-button{
+    padding: 1em;
+    border-radius: 0.6em;
+    border: none;
+    width:26em;
+    background-color:#00ffa4;
+    margin-bottom: 10px;
+    margin-top: 6px; 
+    color:black;
+    font-weight: bold;
+    text-align: center;
+    margin-top:2em;
+    cursor:pointer;
+}
+
+#fpwd{
+    color:#d9d9d9;
+    font-weight:400;
+    cursor:pointer
+}
+
+#reg-here{
+    text-align:center;
+    font-weight:400;
+    color:#d9d9d9;
+}
+
+#login-head{
+    position:absolute;
+    color:#d9d9d9;
+    margin-left:19em;
+    margin-top:3em;
+}
