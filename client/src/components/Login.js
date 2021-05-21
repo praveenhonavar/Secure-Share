@@ -45,6 +45,15 @@ class Login extends Component {
     const { accounts, contract } = this.state;
 
 
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Make sure that you are using your MetaMask Account',
+      showConfirmButton: false,
+      timer: 2500
+    })
+
+
     var loginUserName = document.getElementById("login-username");
     var loginPassword = document.getElementById("login-password");
     var loginBtn  = document.getElementById("login-button");
@@ -78,7 +87,7 @@ class Login extends Component {
               icon: 'fail',
               title: 'Please Make sure that you are using same MetaMask Account 😕',
               showConfirmButton: false,
-              timer:2000
+              timer:2500
             })
           }
         })
@@ -121,7 +130,7 @@ class Login extends Component {
 
                             <input type="button" value="Sign In" id ="login-button"/>
                             
-                            <h5 id="reg-here">Need an account? <Link to='register' target="_blank">Register here.</Link></h5>
+                            <h5 id="reg-here">Need an account? <Link to='register' target="_blank" id="reg-xtra-sht">Register here.</Link></h5>
 
 
                         </div>

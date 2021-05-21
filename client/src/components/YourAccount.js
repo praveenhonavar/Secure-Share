@@ -2,11 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import SecureShareContract from "../contracts/SecureShare.json";
 import getWeb3 from "../getWeb3";
-import Swal from "sweetalert2";
 
-import '../styles/Dashboard.css';
+import '../styles/YourAccount.css';
 
-class Dashboard extends Component {
+class YourAccount extends Component {
   state = { storageValue: 0, web3: null, accounts: null, contract: null };
 
   componentDidMount = async () => {
@@ -52,9 +51,6 @@ class Dashboard extends Component {
 
     console.log('saman',contract);
 
-
-
-
     contract.getPastEvents("AddedUser",{
       fromBlock:0,
       toBlock:'latest'
@@ -69,10 +65,7 @@ class Dashboard extends Component {
 
         // var senderNameAddress = res[2];
         // console.log('joe',senderNameAddress);
-        
-        if(accounts[0] == address){
-            dbName.innerHTML =`&nbsp${name}`;
-        }
+      
       }
     });
 
@@ -124,26 +117,7 @@ class Dashboard extends Component {
                 }
                 console.log('yuoii',senderName);                    
 
-                sharedFiles.innerHTML+=
-               `<div class="courses-container">
-                <div class="course">
-                    <div class="course-preview">
-                        <h6>Time Stamp</h6>
-                        <br>
-                        <h4>${res[4]}</h4>
-                    </div>
-    
-                    <div class="course-info">
-                        <h6>File Name</h6>
-                        <h2>${res[1]}</h2>
-                        <h6 id="sender">Sender</h6>
-                        <h4>${senderName}&nbsp<b>-</b>&nbsp${res[2]}</h4>
-                        <a href=${ipfsSite+res[0]}>
-                          <button class="btn">Download</button>
-                        </a>
-                    </div>
-                </div>
-            </div>`
+         
 
               })
 
@@ -167,9 +141,9 @@ class Dashboard extends Component {
     }
     return (
 
+        <div id="account-bg">
 
-    <div className="db">
-    <nav id="nav-bar-db">
+        <nav id="nav-bar-db">
         <ul id="nav-items-db">
 
         <Link to='/' target="_blank">
@@ -189,28 +163,49 @@ class Dashboard extends Component {
            
         </ul>
 
-    </nav>
+        </nav>
 
-    <div id="wrap">
+            <div id="account-box">
 
-        <section id="dashboard-container">
-                <div id="Introduction">Welcome to Secure Share,<span id='db-name'></span></div>
-                <div id="sub-intro">Explore a Secure way of sharing Health Records</div>
-        </section>
+                <div id="acc-face"></div>
 
-  <h3 id='dash-head'>Files Shared with You</h3> 
+                <div id="account-info">
 
-         <div id="shared-files">
-            
-        </div>         
-    </div>
+                    <h5 id="acc-name-head">UserName</h5>
+                    <h4 id="acc-name">Luna</h4>
 
-    </div>
-      
-   
+                    <h5 id="acc-eth-head">Ethereum Address</h5>
+                    <h4 id="acc-eth">0x33e1069CC4B59D7278901dA47F688070C1455283</h4>
+
+                    <h5 id="acc-prv-head">Private Key</h5>
+                    <h4 id="acc-prv">0x33e1069CC4B59D7278901dA47F688070C1455283</h4>
+
+                </div>
+
+                <div id="files-details">
+                
+                    <div id="shared-files-box">
+                        <h5 id="num-files-shared">Number of Files Shared</h5>
+                        <h3 id="count-files-shared">24</h3>
+                    </div>
+
+                    <div id="received-files-box">
+                        <h5 id="num-files-received">Number of Files Received</h5>
+                        <h3 id="count-files-received">11</h3>
+                    </div>
+
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+         
     );
   }
 }
 
 
-export default Dashboard;
+export default YourAccount;

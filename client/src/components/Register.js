@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import SecureShareContract from "../contracts/SecureShare.json";
 import getWeb3 from "../getWeb3";
+import { Link } from "react-router-dom";
+
 
 import "../styles/Register.css";
 
@@ -74,6 +76,9 @@ class Register extends Component {
             showConfirmButton: false,
             timer:2000
           })
+
+          window.location="http://localhost:3000/dashboard";
+
         }    
       );
     });
@@ -115,7 +120,7 @@ class Register extends Component {
       <button id="submit"> Register </button>
     </div>
 
-  <h5 id="reg-extra">Already have an account? SignIn here</h5>
+  <h5 id="reg-extra">Already have an account?<Link to='login' target="_blank" id="login-xtra"> SignIn here.</Link></h5>
 
   </div>
   </div>

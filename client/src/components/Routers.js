@@ -10,6 +10,7 @@ import Share from "../Share";
 
 import HomePage from "./HomePage";
 import Dashboard from "./DashBoard";
+import YourAccount from "./YourAccount";
 
 
 
@@ -33,6 +34,9 @@ function Routers(){
                 <Route exact path='/dashboard'  component={Dashboard}></Route>
                
                 <Route exact path='/share'  component={Share}></Route>
+
+                <Route exact path='/account'  component={YourAccount}></Route>
+
 
                 
             </Switch>

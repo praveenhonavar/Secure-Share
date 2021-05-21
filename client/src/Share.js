@@ -216,8 +216,6 @@ class Share extends Component {
 
                     Swal.fire({
                       title: "File Shared Successfully !",
-                      text: `Your file is uploded to IPFS with the following Hash Value
-                              ${res[0].hash}`,
                       icon: "success",
                       button: "Done!",
                     });
