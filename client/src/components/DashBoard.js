@@ -43,17 +43,12 @@ class Dashboard extends Component {
 
     var senderName;
   
-
     var sharedFiles = document.getElementById("shared-files");
     var dbName  = document.getElementById("db-name");
 
     const { accounts, contract } = this.state;
 
-
     console.log('saman',contract);
-
-
-
 
     contract.getPastEvents("AddedUser",{
       fromBlock:0,
