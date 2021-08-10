@@ -26,7 +26,10 @@ struct UserInfo{
 event AddedUser(
   string name,
   string password,
-  address accountAddress
+  address accountAddress,
+  string accountType
+
+
 );
 
 
@@ -53,19 +56,11 @@ event Fail(
 
   mapping(address=>uint) fileKey;
 
-
-
-  function registerUser(string memory name,string memory password,address accountAddress) public{
-
+  function registerUser(string memory name,string memory password,address accountAddress,string memory accountType) public{
     UserNameMapping[name].name = name;
     UserNameMapping[name].password = password;
     UserNameMapping[name].accountAddress = accountAddress;
-
-
-  
-    emit AddedUser(name, password, accountAddress);
-
-
+    emit AddedUser(name, password, accountAddress, accountType);
   }
 
   function uploadHash(string memory storedHash,string memory fileName,address sender,address receiver,string memory time) public {

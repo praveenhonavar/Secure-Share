@@ -171,3 +171,15 @@ a{
     cursor: pointer;
 }
 
+
+#view-comments{
+	position: absolute;
+	color:#d9d9d9;
+	margin-top: -9em;
+	margin-left: 49.5em;
+	cursor: pointer;
+}
+
+#comment{
+	cursor: pointer;
+}

@@ -10,7 +10,7 @@
     color: #d9d9d9;
     text-align: center;
     margin-left: 17em;
-    margin-top: 2em;
+    margin-top: 1em;
     font-weight: bolder;
 }
 
@@ -19,8 +19,8 @@
     background-color: #171e2e;
     margin-left: 31em;
     width: 28%;
-    height: 60%;
-    margin-top: 9em;
+    height: 80%;
+    margin-top: 6em;
     text-align: justify;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
@@ -50,6 +50,8 @@
     margin-bottom: 20px;
     margin-top: 10px; 
     color: #d9d9d9;
+    outline:none;
+
 }
 
 #reg-password{
@@ -61,6 +63,8 @@
     margin-bottom: 20px;
     margin-top: 10px; 
     color: #d9d9d9;
+    outline:none;
+
 }
 
 #reg-address{
@@ -72,6 +76,8 @@
     margin-bottom: 20px;
     margin-top: 10px; 
     color: #d9d9d9;
+    outline:none;
+
 }
 
 #item-head-1{
@@ -109,4 +115,21 @@
 
 #login-xtra{
     color: #00ffa4;
+}
+
+#role-select{
+    /* width:23em;
+    padding:5px;
+    background-color: #313742; */
+    padding: 0.5em;
+    border-radius: 0.6em;
+    border: none;
+    width:23em;
+    background-color: #313742;
+    margin-bottom: 20px;
+    margin-top: 10px; 
+    color: #d9d9d9;
+    outline:none;
+
+
 }

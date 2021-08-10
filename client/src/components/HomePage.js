@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Switch, Route,Link} from 'react-router-dom';
 
 import "../styles/HomePage.css";
 
+
+
 function HomePage(){
    
   return(
@@ -26,7 +28,7 @@ function HomePage(){
             </a>
           </li>
 
-          <Link to="/login" target="_blank">
+          <Link to="/login" >
             <li>
               <label for="login" id="login">
                 <p>Sign In</p>
