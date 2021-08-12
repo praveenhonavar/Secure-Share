@@ -75,6 +75,22 @@ npm run start
 
 ## Screenshots
 
+![HomePage](https://github.com/praveenhonavar/Secure-Share/blob/new-b/client/public/assets/results/Screenshot%20(361.png)
+
+![Login](https://github.com/praveenhonavar/Secure-Share/blob/new-b/client/public/assets/results/Register.png)
+
+![Register](https://github.com/praveenhonavar/Secure-Share/blob/new-b/client/public/assets/results/login.png)
+
+![Select Receiver](https://github.com/praveenhonavar/Secure-Share/blob/new-b/client/public/assets/results/selectReceiver.png)
+
+![Dashboard](https://github.com/praveenhonavar/Secure-Share/blob/new-b/client/public/assets/results/DashBoardAfterShare.png)
+
+![Dashboard-After-Share](https://github.com/praveenhonavar/Secure-Share/blob/new-b/client/public/assets/results/patientDb.png)
+
+
+
+
+
 
 
 
