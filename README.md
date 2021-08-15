@@ -2,11 +2,24 @@
 
 ### Secure Sharing platform for Electronic Health Records using Blockchain and Decentralized Storage Technology.
 
+<p align="center">
+<img src="https://github.com/praveenhonavar/Secure-Share/blob/new-b/client/public/assets/logo-homepage.png">
+</p>
 
-![Logo](https://github.com/praveenhonavar/Secure-Share/blob/new-b/client/public/assets/logo-homepage.png)
 
 ## Technology Used
 
+<hr>
+
+- [Solidity](https://docs.soliditylang.org/en/v0.7.6/) - Object-oriented, high-level language for implementing smart contracts.
+
+- [React.js](https://reactjs.org/) - JavaScript library for building user interfaces.
+
+- [web3.js](https://web3js.readthedocs.io/en/v1.3.4/) - Allows users to interact with a local or remote ethereum node using HTTP, IPC or WebSocket.
+
+- [Truffle](https://www.trufflesuite.com/truffle) - Development environment, testing framework and asset pipeline for blockchains using the Ethereum Virtual Machine (EVM).
+
+- [Ganache](https://www.trufflesuite.com/ganache) - Personal blockchain for Ethereum development used to deploy contracts, develop DApps, and run tests.
 
 
 ## Pre-Requisite
@@ -15,13 +28,13 @@
  *These are the tools required to build a Decentralized Application*
 
 
-### [Node](https://nodejs.org/en/download/)
+- [Node](https://nodejs.org/en/download/)
 
-### [Truffle](https://www.trufflesuite.com/truffle) v 5.0.2
+- [Truffle](https://www.trufflesuite.com/truffle) v 5.0.2
 
-### [Ganache](https://www.trufflesuite.com/ganache) v 2.1.1
+- [Ganache](https://www.trufflesuite.com/ganache) v 2.1.1
 
-### [MetaMask](https://blog.wetrust.io/how-to-install-and-use-metamask-7210720ca047)
+- [MetaMask](https://blog.wetrust.io/how-to-install-and-use-metamask-7210720ca047)
 
 <br>
 
@@ -75,7 +88,7 @@ npm run start
 
 ## Screenshots
 
-![HomePage](https://github.com/praveenhonavar/Secure-Share/blob/new-b/client/public/assets/results/Screenshot%20(361.png)
+![HomePage](https://github.com/praveenhonavar/Secure-Share/blob/new-b/client/public/assets/results/Screenshot%20(361).png)
 
 ![Login](https://github.com/praveenhonavar/Secure-Share/blob/new-b/client/public/assets/results/Register.png)
 
