@@ -2,9 +2,11 @@
 
 ### Secure Sharing platform for Electronic Health Records using Blockchain and Decentralized Storage Technology.
 
-<p align="center">
-<img src="../client/public/assets/header.png">
-</p>
+<div align="center" width="100%" height="20vh">
+
+<img src="https://github.com/praveenhonavar/Secure-Share/blob/new-b/client/public/assets/header.png" >
+
+</div>
 
 
 ## Technology Used
