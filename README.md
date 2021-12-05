@@ -89,6 +89,8 @@ npm run start
 
 *Import Accounts from ganache into metamask walllet to make interact with the DApp*
 
+*This is just a demo application to understand the concepts of blockchain, encryption and distributed storage*
+
 ## Screenshots
 
 ![HomePage](https://github.com/praveenhonavar/Secure-Share/blob/new-b/client/public/assets/results/Screenshot%20(361).png)
@@ -102,6 +104,7 @@ npm run start
 ![Dashboard](https://github.com/praveenhonavar/Secure-Share/blob/new-b/client/public/assets/results/DashBoardAfterShare.png)
 
 ![Dashboard-After-Share](https://github.com/praveenhonavar/Secure-Share/blob/new-b/client/public/assets/results/patientDb.png)
+
 
 
 
