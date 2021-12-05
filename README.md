@@ -27,6 +27,16 @@
 
 <br>
 
+## Use the App
+
+- Connect to Ropsten Test Network using Metamask
+
+- Signup using your address and Login to the application
+
+- In the Dashboard you can view the health records that are shared with you
+
+- To share your health record you can make use of start sharing feature
+
 ## Run the DApp Locally
 <hr>
 
