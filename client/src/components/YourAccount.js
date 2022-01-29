@@ -2,11 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import SecureShareContract from "../contracts/SecureShare.json";
 import getWeb3 from "../getWeb3";
-
 import "../styles/YourAccount.css";
 
-const pd = () => {
-  console.log("oooooooooooooooooooooooo");
+const refreshWindow = () => {
   if (!window.location.hash) {
     window.location = window.location + "#loaded";
     window.location.reload();
@@ -46,32 +44,19 @@ class YourAccount extends Component {
 
   runExample = async () => {
     var fileId;
-
     var senderName;
-
-    var sharedFiles = document.getElementById("shared-files");
-    var dbName = document.getElementById("db-name");
-
     const { accounts, contract } = this.state;
-
-    console.log("saman", contract);
-
     contract
       .getPastEvents("AddedUser", {
         fromBlock: 0,
         toBlock: "latest",
       })
       .then((val) => {
-        console.log(val);
-
         var size = val.length;
 
         for (var index = 0; index < size; index++) {
           var name = val[index].returnValues.name;
           var address = val[index].returnValues.accountAddress;
-
-          // var senderNameAddress = res[2];
-          // console.log('joe',senderNameAddress);
         }
       });
 
@@ -97,8 +82,6 @@ class YourAccount extends Component {
                   toBlock: "latest",
                 })
                 .then((val) => {
-                  console.log(val);
-
                   var size = val.length;
 
                   for (var index = 0; index < size; index++) {
@@ -106,23 +89,11 @@ class YourAccount extends Component {
                     var address = val[index].returnValues.accountAddress;
 
                     var senderNameAddress = res[2];
-                    console.log("joe", senderNameAddress);
-
-                    // if(accounts[0] == address){
-                    //     dbName.innerHTML =`&nbsp${name}`;
-                    // }
 
                     if (senderNameAddress == address) {
-                      console.log("yuoii");
                       senderName = name;
-                      console.log("yuoii", senderName);
                     }
-
-                    console.log(name);
-                    console.log(address);
-                    console.log("---------------------");
                   }
-                  console.log("yuoii", senderName);
                 });
             });
         }
@@ -131,11 +102,7 @@ class YourAccount extends Component {
 
   render() {
     if (!this.state.web3) {
-      pd();
-
-      console.log("pkfpefpef");
-
-      // return <div>Loading Web3, accounts, and contract...</div>;
+      refreshWindow();
     }
     return (
       <div id="account-bg">

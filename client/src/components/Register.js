@@ -2,16 +2,12 @@ import React, { Component } from "react";
 import SecureShareContract from "../contracts/SecureShare.json";
 import getWeb3 from "../getWeb3";
 import { Link } from "react-router-dom";
-
 import "../styles/Register.css";
-
 import Swal from "sweetalert2";
 
 var accountType;
-// const NodeRSA = require("node-rsa");
 
-const pd = () => {
-  console.log("oooooooooooooooooooooooo");
+const refreshWindow = () => {
   if (!window.location.hash) {
     window.location = window.location + "#loaded";
     window.location.reload();
@@ -25,7 +21,6 @@ class Register extends Component {
     try {
       // Get network provider and web3 instance.
       const web3 = await getWeb3();
-
       // Use web3 to get the user's accounts.
       const accounts = await web3.eth.getAccounts();
 
@@ -50,13 +45,8 @@ class Register extends Component {
   };
 
   runExample = async () => {
-    var file;
-    var bufferedFile;
-    var fileId;
-    var selectedReceiver;
 
     var submitButton = document.getElementById("submit");
-
     var rS = document.getElementById("role-select");
 
     rS.addEventListener("change", () => {
@@ -65,26 +55,7 @@ class Register extends Component {
     });
 
     const { accounts, contract } = this.state;
-
-    // Stores a given value, 5 by default.
-    // await contract.methods.set(5).send({ from: accounts[0] });
-
-    // Get the value from the contract to prove it worked.
-    // const response = await contract.methods.get().call();
-
-    console.log("llp", contract);
-
     submitButton.addEventListener("click", () => {
-      // const key = new NodeRSA({ b: 512 });
-      // console.log("keyyyy", key);
-
-      // var publicKey = key.exportKey("public");
-      // var privateKey = key.exportKey("private");
-
-      // console.log("keyyyy", publicKey);
-      // console.log(privateKey);
-
-      console.log(accountType);
 
       var password = document.getElementById("reg-password").value;
       var username = document.getElementById("reg-username").value;
@@ -102,7 +73,6 @@ class Register extends Component {
             showConfirmButton: false,
             timer: 2000,
           });
-
           window.location = "http://localhost:3000/login";
         });
     });
@@ -110,11 +80,7 @@ class Register extends Component {
 
   render() {
     if (!this.state.web3) {
-      pd();
-
-      console.log("pkfpefpef");
-
-      // return <div>Loading Web3, accounts, and contract...</div>;
+      refreshWindow();
     }
     return (
       <div id="register-body">

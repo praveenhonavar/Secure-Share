@@ -1,22 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-
 import SecureShareContract from "./contracts/SecureShare.json";
 import getWeb3 from "./getWeb3";
-
 import ipfs from "./ipfs";
 import Swal from "sweetalert2";
-
 import "./styles/Share.css";
 
-const NodeRSA = require("node-rsa");
-
-const cryptoJS = require("crypto-js");
-
-var key = "key1234";
-
-const pd = () => {
-  console.log("oooooooooooooooooooooooo");
+const refreshWindow = () => {
   if (!window.location.hash) {
     window.location = window.location + "#loaded";
     window.location.reload();
@@ -70,7 +60,6 @@ class Share extends Component {
     var pw = document.getElementById("pw");
     var beforeAdd = document.getElementById("before-add");
     var afterAdd = document.getElementById("after-add");
-    // var fileName = document.querySelector("#document");
     var fileName = document.getElementById("file-name");
 
     var selectReceiver = document.getElementById("select-receiver");
@@ -81,8 +70,6 @@ class Share extends Component {
 
     var account = document.getElementById("account");
 
-    console.log(fileName);
-
     const { accounts, contract } = this.state;
 
     fileAddedIcon.style.display = "none";
@@ -90,17 +77,6 @@ class Share extends Component {
     pw.style.display = "none";
 
     cusUploadBtn.style.display = "none";
-
-    // Stores a given value, 5 by default.
-    // await contract.methods.set(5).send({ from: accounts[0] });
-
-    // Get the value from the contract to prove it worked.
-    // const response = await contract.methods.get().call();
-
-    console.log("opfs", ipfs);
-
-    // Update state with the result.
-    // this.setState({ storageValue: response });
 
     Swal.fire({
       title: "Make sure you have Logged In using the same Account in MetaMask",
@@ -114,8 +90,6 @@ class Share extends Component {
         toBlock: "latest",
       })
       .then((val) => {
-        console.log(val);
-
         var size = val.length;
 
         for (var index = 0; index < size; index++) {
@@ -127,11 +101,6 @@ class Share extends Component {
           if (accounts[0] == address) {
             account.innerHTML = ` ${name} -  &nbsp&nbsp${accountType} Account`;
           }
-
-          console.log(name);
-          console.log(address);
-          console.log("---------------------");
-
           selectReceiver.innerHTML += `<option value=${address}>${name}</option>`;
         }
       });
@@ -139,44 +108,15 @@ class Share extends Component {
     selectReceiver.addEventListener("change", () => {
       selectedReceiver =
         selectReceiver.options[selectReceiver.selectedIndex].value;
-      console.log(selectedReceiver);
     });
 
     chooseButton.addEventListener("change", (event) => {
       event.preventDefault();
 
-      console.log("capture");
-      console.log(event);
-
       file = event.target.files[0];
 
-      console.log("maeeeeeeeeeee", file);
-
-      console.log(file.name);
-
-      // crypto.createCipheriv("aes-256-ccm",key).update(file,'utf-8','')
-
-      // const ap = fs.readFileSync(file,'utf8');
-
-      // console.log("meimememe",ap);
-
-      // const key = new NodeRSA({ b: 512 });
-      // console.log("keyyyy", key);
-
-      // bufferedFile = key.encrypt(file,'buffer');
-
-      // console.log("hisishihihsi",bufferedFile);
-
-      //   var publicKey = key.exportKey("public");
-      //   var privateKey = key.exportKey("private");
-
-      //   console.log("keyyyy", publicKey);
-      //   console.log(privateKey);
-
       fileAddedIcon.style.display = "block";
-
       cusUploadBtn.style.display = "block";
-
       uploadIcon.style.display = "none";
       beforeAdd.style.display = "none";
 
@@ -185,67 +125,10 @@ class Share extends Component {
 
       const reader = new window.FileReader();
 
-      // reader.readAsText(file)
       reader.readAsArrayBuffer(file);
 
       reader.onloadend = () => {
-        console.log("shhooooooo", reader.result);
-
-        // var encrypted = cryptoJS.AES.encrypt(reader.result, "123456")
-
-        // console.log(typeof(encrypted));
-
-        // var d = cryptoJS.AES.decrypt(encrypted,"123456").toString(cryptoJS.enc.Utf8);
-
-        // bufferedFile=encrypted
-
-        // bufferedFile = Buffer.from(encrypted.toString());
         bufferedFile = Buffer.from(reader.result);
-
-        // var bf = bson.deserialize(bufferedFile)
-
-        // var d = cryptoJS.AES.decrypt(bufferedFile,"123456")
-
-        // console.log(typeof(d));
-        // console.log(d);
-
-        // var d = cryptoJS.AES.decrypt(bufferedFile,"123456");
-        // console.log(d);
-        // console.log(d.words);
-        // console.log(bufferedFile);
-
-        // const key = new NodeRSA({ b: 512 });
-
-        // var publicKey = key.exportKey("public");
-        // var privateKey = key.exportKey("private");
-
-        // console.log("keyyyy", publicKey);
-        // console.log(privateKey);
-
-        // // // bufferedFile = key.encrypt(reader.result);
-
-        // let pubK = new NodeRSA(publicKey);
-
-        // console.log("newewew",pubK);
-
-        // let prvK = new NodeRSA(privateKey);
-
-        // console.log("newewePPPP",prvK);
-
-        // bufferedFile = pubK.encrypt(reader.result);
-
-        // console.log("enci",bufferedFile)
-
-        // let dto = prvK.decrypt(bufferedFile);
-
-        // console.log(dto);
-
-        // console.log(dto.toString());
-
-        // console.log(reader.result);
-
-        // bufferedFile = key.encrypt(reader.result);
-        // console.log(bufferedFile);
       };
     });
 
@@ -253,16 +136,9 @@ class Share extends Component {
       event.preventDefault();
 
       var d = new Date().toLocaleString();
-      console.log("time", d);
-
-      console.log(bufferedFile);
-
-      console.log(contract);
-      console.log(accounts[0]);
 
       fileAddedIcon.style.display = "none";
       afterAdd.innerText = "";
-
       loader.style.display = "block";
       pw.style.display = "block";
       cusUploadBtn.style.display = "none";
@@ -275,33 +151,23 @@ class Share extends Component {
           return console.log("Error", err);
         }
 
-        console.log("Success");
-        console.log(res[0].hash);
-
         contract.methods
           .uploadHash(res[0].hash, fileName, accounts[0], receiver, d)
           .send({ from: accounts[0] })
           .then((data) => {
-            console.log(data);
-            console.log("added");
-
             loader.style.display = "none";
             pw.style.display = "none";
 
             uploadIcon.style.display = "block";
             beforeAdd.style.display = "block";
-
             cusUploadBtn.style.display = "none";
 
             if (localStorage.getItem(accounts[0]) == null) {
-              localStorage.setItem(accounts[0], '[]');
+              localStorage.setItem(accounts[0], "[]");
             }
 
             var oldData = JSON.parse(localStorage.getItem(accounts[0]));
-
-            console.log(fileName);
             oldData.push(fileName);
-            console.log(oldData);
 
             if (res.value != null) {
               localStorage.setItem(accounts[0], JSON.stringify(oldData));
@@ -333,11 +199,7 @@ class Share extends Component {
 
   render() {
     if (!this.state.web3) {
-      pd();
-
-      console.log("pkfpefpef");
-
-      // return <div>Loading Web3, accounts, and contract...</div>;
+      refreshWindow();
     }
     return (
       <div className="Share">
