@@ -2,13 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import SecureShareContract from "../contracts/SecureShare.json";
 import getWeb3 from "../getWeb3";
-
 import Swal from "sweetalert2";
-
 import "../styles/Login.css";
 
-const pd = () => {
-  console.log("oooooooooooooooooooooooo");
+const refreshWindow = () => {
   if (!window.location.hash) {
     window.location = window.location + "#loaded";
     window.location.reload();
@@ -22,10 +19,8 @@ class Login extends Component {
     try {
       // Get network provider and web3 instance.
       const web3 = await getWeb3();
-
       // Use web3 to get the user's accounts.
       const accounts = await web3.eth.getAccounts();
-
       // Get the contract instance.
       const networkId = await web3.eth.net.getId();
       const deployedNetwork = SecureShareContract.networks[networkId];
@@ -33,7 +28,6 @@ class Login extends Component {
         SecureShareContract.abi,
         deployedNetwork && deployedNetwork.address
       );
-
       // Set web3, accounts, and contract to the state, and then proceed with an
       // example of interacting with the contract's methods.
       this.setState({ web3, accounts, contract: instance }, this.runExample);
@@ -65,29 +59,20 @@ class Login extends Component {
       var userName = loginUserName.value;
       var password = loginPassword.value;
 
-      console.log(userName);
-      console.log(password);
-
       contract.methods
         .authenticateUser(userName, password)
         .send({ from: accounts[0] })
         .then((data) => {
-          console.log(data.events);
-
-          
           contract.getPastEvents("Success").then((val) => {
             if (val[0].returnValues.value == true) {
-              console.log("inn");
               Swal.fire({
                 icon: "success",
                 title: "Logged-In Successfully 🎉",
                 showConfirmButton: false,
                 timer: 2000,
               });
-
               window.location = "http://localhost:3000/dashboard";
             } else {
-              console.log("foff");
               Swal.fire({
                 icon: "fail",
                 title:
@@ -103,11 +88,7 @@ class Login extends Component {
 
   render() {
     if (!this.state.web3) {
-      pd();
-
-      console.log("pkfpefpef");
-
-      // return <div>Loading Web3, accounts, and contract...</div>;
+      refreshWindow();
     }
     return (
       <div>
